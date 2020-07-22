@@ -11,16 +11,17 @@
             padding: 50px;
             background-color: #FFFFFF;
         }
-        .letter {
-            padding: 10px;
-            margin: 10px;
-            background-color: #FFDE00;
-            color: #333;
-            display: inline-block;
-            font-family: monospace;
-            font-size: 32px;
-            text-align: center;
-        }
+
+        /*        .letter {
+                    padding: 10px;
+                    margin: 10px;
+                    background-color: #FFDE00;
+                    color: #333;
+                    display: inline-block;
+                    font-family: monospace;
+                    font-size: 32px;
+                    text-align: center;
+                }*/
     </style>
 </head>
 <body>
@@ -34,27 +35,27 @@
             //Formular converting
             //  single-word remain unchanged
             //  multiword with dash - change to camel-case background-color becomes backgroundColor
-            let letterStyle = {
+            var letterStyle = {
                 adding: "10px",
                 margin: "10px",
-                backgroundColor: "#FFDE00",
+                backgroundColor: this.props.bgColor || "#FFF00F",
                 color: "#333",
                 display: "inline-block",
                 fontFamily: "monospace",
                 fontSize: "32px",
                 textAlign: "center"
-            }
+            };
             return (
-                <div className="letter">{this.props.children}</div>
+                <div style={letterStyle}>{this.props.children}</div>
             )
         }
     }
 
     ReactDOM.render(
         <div>
-            <Letter>A</Letter>
-            <Letter>E</Letter>
-            <Letter>I</Letter>
+            <Letter bgColor="#5800FF">A</Letter>
+            <Letter bgColor="#58B3FF">E</Letter>
+            <Letter bgColor="#FFB3FF">I</Letter>
             <Letter>O</Letter>
             <Letter>U</Letter>
         </div>
