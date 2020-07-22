@@ -16,14 +16,30 @@
 <body>
 <div id="container"></div>
 <script type="text/babel">
-    import {Component} from "react";
-
     let destination = document.querySelector("#container")
 
-    class LightningCounter extends Component {
+    class LightningCounter extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                strikes: 0
+            }
+        }
+
+        timerTick = () => {
+            this.setState({
+                ...this.state,
+                strikes: this.state.strikes + 100
+            })
+        }
+
+        componentDidMount() {
+            setInterval(this.timerTick, 1000);
+        }
+
         render() {
             return (
-                <h1> Hello!</h1>
+                <h1> {this.state.strikes}</h1>
             )
         }
     }
