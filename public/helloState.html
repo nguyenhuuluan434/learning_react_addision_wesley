@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style in react</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    import {Component} from "react";
+
+    let destination = document.querySelector("#container")
+
+    class LightningCounter extends Component {
+        render() {
+            return (
+                <h1> Hello!</h1>
+            )
+        }
+    }
+
+    class LightningCounterDisplay extends React.Component {
+        render() {
+            let divStyle = {
+                width: 250,
+                textAlign: "center",
+                backgroundColor: "black",
+                padding: 40,
+                fontFamily: "sans-serif",
+                color: "#999",
+                borderRadius: 10
+            };
+            return (
+                <div style={divStyle}>
+                    <LightningCounter/>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <LightningCounterDisplay/>
+        </div>
+        ,
+        destination
+    );
+</script>
+</body>
+</html>
